@@ -9,14 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #2a3a5e;
+      --primary-color: #223a5e;
       --secondary-color: #5a6270;
-      --accent-color: #b0b8c9;
+      --accent-color: #ff6a3d;
       --text-primary: #222;
       --text-secondary: #555;
       --bg-light: #f7fafc;
       --card-shadow: 0 2px 8px rgba(0,0,0,0.04);
       --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
+      --glass-bg: rgba(255,255,255,0.75);
+      --glass-blur: blur(8px);
     }
 
     * {
@@ -27,11 +29,21 @@
 
     body {
       font-family: 'Inter', '微软雅黑', Arial, sans-serif;
-      background: #f5f7fa;
+      background: linear-gradient(120deg, #f7fafc 60%, #e3eafc 100%);
       min-height: 100vh;
       color: var(--text-primary);
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: 15.5px;
+      line-height: 1.8;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png');
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .container {
@@ -42,11 +54,11 @@
 
     /* Header Section */
     .header-section {
-      background: #fff;
-      border-radius: 10px;
+      background: linear-gradient(120deg, #f7fafc 60%, #e3eafc 100%);
+      border-radius: 16px;
       padding: 0.7rem 0.7rem 0.6rem 0.7rem;
       margin-bottom: 0.7rem;
-      box-shadow: var(--card-shadow);
+      box-shadow: 0 4px 24px rgba(42,58,94,0.08);
     }
 
     .profile-container {
@@ -64,15 +76,21 @@
       height: auto;
       max-width: 140px;
       max-height: 180px;
-      border-radius: 10px;
+      border-radius: 50%;
       object-fit: contain;
       object-position: center center;
-      border: 2px solid #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 6px 24px rgba(34,58,94,0.18);
       flex-shrink: 0;
-      background: none;
+      background: #fff;
+      padding: 6px;
       display: block;
       order: 2;
+      transition: box-shadow 0.3s, border 0.3s;
+    }
+    .profile-image:hover {
+      box-shadow: 0 12px 36px rgba(255,106,61,0.18);
+      border: 4px solid var(--primary-color);
     }
 
     .profile-info {
@@ -131,22 +149,35 @@
 
     /* Section Cards */
     .section-card {
-      background: #fff;
-      border-radius: 10px;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-radius: 18px;
       padding: 0.7rem 0.7rem 0.6rem 0.7rem;
-      margin-bottom: 0.7rem;
-      box-shadow: var(--card-shadow);
-      border: 1px solid #f0f1f3;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 24px rgba(34,58,94,0.10);
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.25s, transform 0.25s, border 0.25s;
+    }
+    .section-card:hover {
+      box-shadow: 0 12px 36px rgba(34,58,94,0.18);
+      border: 1.5px solid var(--accent-color);
+      transform: translateY(-6px) scale(1.025);
     }
 
     .section-title {
-      font-size: 1.13rem;
-      font-weight: 600;
+      font-family: 'Montserrat', 'Inter', '微软雅黑', Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--primary-color);
-      margin-bottom: 0.4rem;
+      letter-spacing: 1px;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.5em;
+      margin-bottom: 0.5em;
+      border-left: 5px solid var(--accent-color);
+      padding-left: 0.5em;
+      background: linear-gradient(90deg, #fff 80%, #ffe3d6 100%);
+      border-radius: 8px;
     }
 
     .section-title i {
@@ -189,11 +220,12 @@
 
     /* Project Cards */
     .project-card {
-      background: #f8fafd;
-      border-radius: 10px;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-radius: 18px;
       padding: 0.5rem 0.6rem 0.4rem 0.6rem;
       margin-bottom: 0.4rem;
-      border: 1px solid #e5e7eb;
+      border: 1.5px solid #e3eafc;
       box-shadow: none;
     }
 
@@ -286,11 +318,17 @@
     /* Awards */
     .award-item {
       padding: 0.5rem 0.6rem 0.4rem 0.6rem;
-      border-radius: 10px;
+      border-radius: 16px;
       margin-bottom: 0.4rem;
-      background: #f8fafd;
-      border: 1px solid #e5e7eb;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1.5px solid #e3eafc;
       box-shadow: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .award-item:hover {
+      box-shadow: 0 8px 32px rgba(42,58,94,0.12);
+      transform: translateY(-4px) scale(1.01);
     }
 
     .award-title, .publication-title {
@@ -308,10 +346,11 @@
     /* Publications */
     .publication-item {
       padding: 0.5rem 0.6rem 0.4rem 0.6rem;
-      border-radius: 10px;
+      border-radius: 16px;
       margin-bottom: 0.4rem;
-      background: #f8fafd;
-      border: 1px solid #e5e7eb;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1.5px solid #e3eafc;
       box-shadow: none;
     }
 
@@ -449,9 +488,7 @@
     /* 悬浮下载按钮样式 */
     .resume-float-btn-wrap {
       position: fixed;
-      top: 32px;
-      right: 32px;
-      z-index: 3000;
+      z-index: 9999;
       display: flex;
       align-items: stretch;
       border-radius: 24px;
@@ -487,17 +524,17 @@
       align-items: center;
       text-decoration: none;
       cursor: pointer;
+      border-radius: 28px;
+      background: linear-gradient(90deg, var(--accent-color) 60%, var(--primary-color) 100%);
+      box-shadow: 0 2px 12px rgba(255,106,61,0.12);
+      border: 2px solid #fff;
+      transition: background 0.3s, box-shadow 0.3s, border 0.3s;
+      animation: btn-breath 2.5s infinite alternate;
     }
-    @media (max-width: 1000px) {
-      .resume-float-btn-wrap {
-        top: 60px !important;
-        right: 8px !important;
-        left: auto !important;
-        z-index: 3000 !important;
-      }
-    }
-    @media (max-width: 600px) {
-      .resume-float-btn-wrap { top: 60px !important; right: 8px !important; }
+    .resume-float-btn-download:hover {
+      background: linear-gradient(90deg, var(--primary-color) 60%, var(--accent-color) 100%);
+      box-shadow: 0 6px 24px rgba(34,58,94,0.18);
+      border: 2px solid var(--accent-color);
     }
 
     .skill-row {
@@ -647,11 +684,19 @@
       height: auto;
       max-width: 100%;
       max-height: 180px;
-      border-radius: 6px;
+      border-radius: 16px;
       margin-bottom: 0.7rem;
       background: #fff;
-      border: 1px solid #e5e7eb;
+      border: 2.5px solid #e3eafc;
       object-fit: contain;
+      box-shadow: 0 4px 18px rgba(34,58,94,0.13);
+      transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
+    }
+    .research-img:hover {
+      border: 2.5px solid var(--accent-color);
+      box-shadow: 0 4px 24px rgba(255,106,61,0.13), 0 1.5px 8px rgba(34,58,94,0.10);
+      background: rgba(255,255,255,0.7);
+      transform: scale(1.03);
     }
     .research-desc {
       color: var(--text-secondary);
@@ -699,6 +744,32 @@
         border-left: none !important;
         border-bottom: 3px solid #cd310e !important;
       }
+    }
+
+    /* ======= 重要数字高亮 ======= */
+    b, strong {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    /* ======= 行间距与字体优化 ======= */
+    body {
+      line-height: 1.8;
+      font-family: 'Inter', '微软雅黑', Arial, sans-serif;
+      font-size: 15.5px;
+      color: var(--primary-color);
+    }
+
+    /* ======= 响应式优化 ======= */
+    @media (max-width: 600px) {
+      .section-title { font-size: 1.08rem; }
+      .profile-image { max-width: 90px; }
+      .section-card, .project-card, .award-item, .publication-item { border-radius: 12px; }
+    }
+
+    @keyframes btn-breath {
+      0% { box-shadow: 0 2px 12px rgba(255,106,61,0.12);}
+      100% { box-shadow: 0 8px 32px rgba(255,106,61,0.22);}
     }
   </style>
 </head>
@@ -928,36 +999,49 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-  // 大纲高亮
   document.addEventListener('DOMContentLoaded', function() {
-    const sections = ['basic','education','skills','projects','intern','campus','achievements','awards','research'];
-    const navLinks = document.querySelectorAll('.outline-nav a');
-    window.addEventListener('scroll', function() {
-      let cur = '';
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY + 120 >= el.offsetTop) cur = id;
+    // 保证按钮无论宽屏窄屏、拖动与否都不会超出视口
+    function setResumeBtnInitPos() {
+      const wrap = document.getElementById('resumeFloatBtnWrap');
+      if (!wrap) return;
+      const maxLeft = window.innerWidth - wrap.offsetWidth;
+      const maxTop = window.innerHeight - wrap.offsetHeight;
+      if (!wrap.classList.contains('dragged')) {
+        wrap.style.position = 'fixed';
+        wrap.style.right = '';
+        wrap.style.bottom = '';
+        let left = maxLeft - 8;
+        let top = maxTop - 16;
+        left = Math.max(0, left);
+        top = Math.max(0, top);
+        wrap.style.left = left + 'px';
+        wrap.style.top = top + 'px';
+      } else {
+        // 拖动过，保证按钮不超出视口
+        let left = parseInt(wrap.style.left, 10) || 0;
+        let top = parseInt(wrap.style.top, 10) || 0;
+        left = Math.max(0, Math.min(left, maxLeft));
+        top = Math.max(0, Math.min(top, maxTop));
+        wrap.style.left = left + 'px';
+        wrap.style.top = top + 'px';
       }
-      navLinks.forEach(a => { if (!a.classList.contains('always-active')) a.classList.remove('active'); });
-      if (cur) {
-        const active = document.querySelector('.outline-nav a[href="#'+cur+'"]');
-        if (active) active.classList.add('active');
-      }
-    });
+    }
+    setResumeBtnInitPos();
+    window.addEventListener('resize', setResumeBtnInitPos);
 
-    // 悬浮按钮拖动（仅限左侧拖拽区）
+    // 拖动逻辑
     const wrap = document.getElementById('resumeFloatBtnWrap');
     const drag = document.getElementById('resumeFloatBtnDrag');
-    let isDragging = false, offsetX = 0, offsetY = 0, startX = 0, startY = 0;
+    let isDragging = false, offsetX = 0, offsetY = 0;
     drag.addEventListener('mousedown', function(e) {
       if (e.button !== 0) return;
       isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      offsetX = e.clientX - wrap.getBoundingClientRect().left;
-      offsetY = e.clientY - wrap.getBoundingClientRect().top;
+      offsetX = e.clientX - parseInt(wrap.style.left, 10);
+      offsetY = e.clientY - parseInt(wrap.style.top, 10);
       wrap.style.transition = 'none';
       document.body.style.userSelect = 'none';
+      wrap.classList.add('dragged');
+      wrap.style.position = 'fixed';
       e.preventDefault();
     });
     window.addEventListener('mousemove', function(e) {
@@ -968,7 +1052,6 @@
       y = Math.max(0, Math.min(window.innerHeight - wrap.offsetHeight, y));
       wrap.style.left = x + 'px';
       wrap.style.top = y + 'px';
-      wrap.style.right = 'auto';
       wrap.style.position = 'fixed';
     });
     window.addEventListener('mouseup', function(e) {
@@ -980,32 +1063,33 @@
     });
     drag.addEventListener('dragstart', function(e) { e.preventDefault(); });
     // 移动端 touch 支持
-    let touchDragging = false, touchOffsetX = 0, touchOffsetY = 0;
     drag.addEventListener('touchstart', function(e) {
       if (!e.touches || e.touches.length !== 1) return;
-      touchDragging = true;
+      isDragging = true;
       const touch = e.touches[0];
-      touchOffsetX = touch.clientX - wrap.getBoundingClientRect().left;
-      touchOffsetY = touch.clientY - wrap.getBoundingClientRect().top;
+      offsetX = touch.clientX - parseInt(wrap.style.left, 10);
+      offsetY = touch.clientY - parseInt(wrap.style.top, 10);
       wrap.style.transition = 'none';
       document.body.style.userSelect = 'none';
+      wrap.classList.add('dragged');
+      wrap.style.position = 'fixed';
       e.preventDefault();
     }, {passive: false});
     window.addEventListener('touchmove', function(e) {
-      if (!touchDragging || !e.touches || e.touches.length !== 1) return;
+      if (!isDragging || !e.touches || e.touches.length !== 1) return;
       const touch = e.touches[0];
-      let x = touch.clientX - touchOffsetX;
-      let y = touch.clientY - touchOffsetY;
+      let x = touch.clientX - offsetX;
+      let y = touch.clientY - offsetY;
       x = Math.max(0, Math.min(window.innerWidth - wrap.offsetWidth, x));
       y = Math.max(0, Math.min(window.innerHeight - wrap.offsetHeight, y));
       wrap.style.left = x + 'px';
       wrap.style.top = y + 'px';
-      wrap.style.right = 'auto';
       wrap.style.position = 'fixed';
+      e.preventDefault();
     }, {passive: false});
     window.addEventListener('touchend', function(e) {
-      if (touchDragging) {
-        touchDragging = false;
+      if (isDragging) {
+        isDragging = false;
         wrap.style.transition = '';
         document.body.style.userSelect = '';
       }
