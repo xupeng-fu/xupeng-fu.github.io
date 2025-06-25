@@ -9,15 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #223a5e;
-      --secondary-color: #5a6270;
-      --accent-color: #ff6a3d;
-      --text-primary: #222;
-      --text-secondary: #555;
-      --bg-light: #f7fafc;
-      --card-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
-      --glass-bg: rgba(255,255,255,0.75);
+      --primary-color: #1a2236; /* 深藏青蓝 */
+      --secondary-color: #23272f; /* 深灰黑 */
+      --accent-color: #2563eb;   /* 亮蓝 */
+      --text-primary: #232946;   /* 深蓝灰 */
+      --text-secondary: #444;    /* 深灰 */
+      --bg-light: #f4f4f6;
+      --card-shadow: 0 2px 8px rgba(26,34,54,0.04);
+      --card-shadow-hover: 0 4px 16px rgba(26,34,54,0.08);
+      --glass-bg: #fff;
       --glass-blur: blur(8px);
     }
 
@@ -29,7 +29,7 @@
 
     body {
       font-family: 'Inter', '微软雅黑', Arial, sans-serif;
-      background: linear-gradient(120deg, #f7fafc 60%, #e3eafc 100%);
+      background: #f4f4f6;
       min-height: 100vh;
       color: var(--text-primary);
       font-size: 15.5px;
@@ -148,20 +148,19 @@
     }
 
     /* Section Cards */
-    .section-card {
+    .section-card, .project-card, .award-item, .publication-item {
       background: var(--glass-bg);
       backdrop-filter: var(--glass-blur);
       border-radius: 18px;
-      padding: 0.7rem 0.7rem 0.6rem 0.7rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 4px 24px rgba(34,58,94,0.10);
-      border: 1.5px solid #e3eafc;
-      transition: box-shadow 0.25s, transform 0.25s, border 0.25s;
+      box-shadow: 0 6px 32px rgba(26,34,54,0.13), 0 1.5px 8px rgba(26,34,54,0.08) inset;
+      border: 1px solid #e5e7eb;
+      transition: box-shadow 0.25s, transform 0.25s, border 0.25s, background 0.25s;
     }
-    .section-card:hover {
-      box-shadow: 0 12px 36px rgba(34,58,94,0.18);
-      border: 1.5px solid var(--accent-color);
-      transform: translateY(-6px) scale(1.025);
+    .section-card:hover, .project-card:hover, .award-item:hover, .publication-item:hover {
+      box-shadow: 0 4px 12px rgba(26,34,54,0.10);
+      border: 1px solid #2563eb;
+      background: #fff;
+      transform: translateY(-1px) scale(1.003);
     }
 
     .section-title {
@@ -176,8 +175,9 @@
       margin-bottom: 0.5em;
       border-left: 5px solid var(--accent-color);
       padding-left: 0.5em;
-      background: linear-gradient(90deg, #fff 80%, #ffe3d6 100%);
+      background: linear-gradient(90deg, #f5f7fa 100%, #eaf1fb 100%);
       border-radius: 8px;
+      line-height: 1.8;
     }
 
     .section-title i {
@@ -219,16 +219,6 @@
     }
 
     /* Project Cards */
-    .project-card {
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      border-radius: 18px;
-      padding: 0.5rem 0.6rem 0.4rem 0.6rem;
-      margin-bottom: 0.4rem;
-      border: 1.5px solid #e3eafc;
-      box-shadow: none;
-    }
-
     .project-title {
       font-weight: 600;
       color: var(--primary-color);
@@ -283,6 +273,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 0.4rem;
+      padding: 0.7rem;
     }
 
     .skill-category {
@@ -320,15 +311,17 @@
       padding: 0.5rem 0.6rem 0.4rem 0.6rem;
       border-radius: 16px;
       margin-bottom: 0.4rem;
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      border: 1.5px solid #e3eafc;
-      box-shadow: none;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 32px rgba(34,51,74,0.13), 0 1.5px 8px rgba(184,92,28,0.08) inset;
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .award-item:hover {
-      box-shadow: 0 8px 32px rgba(42,58,94,0.12);
-      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 4px 12px rgba(26,34,54,0.10);
+      border: 1px solid #2563eb;
+      background: #fff;
+      transform: translateY(-1px) scale(1.003);
     }
 
     .award-title, .publication-title {
@@ -348,10 +341,10 @@
       padding: 0.5rem 0.6rem 0.4rem 0.6rem;
       border-radius: 16px;
       margin-bottom: 0.4rem;
-      background: var(--glass-bg);
-      backdrop-filter: var(--glass-blur);
-      border: 1.5px solid #e3eafc;
-      box-shadow: none;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 32px rgba(34,51,74,0.13), 0 1.5px 8px rgba(184,92,28,0.08) inset;
     }
 
     /* Responsive Design */
@@ -496,7 +489,7 @@
       overflow: hidden;
       background: rgba(205, 49, 14, 0.85);
       opacity: 0.85;
-      transition: opacity 0.2s, background 0.2s;
+      animation: none;
     }
     .resume-float-btn-wrap:hover {
       opacity: 1;
@@ -513,28 +506,31 @@
       user-select: none;
     }
     .resume-float-btn-download {
-      background: transparent;
+      background: linear-gradient(90deg, #2563eb 0%, #747883 100%);
       color: #fff !important;
       border: none;
-      font-size: 1em;
-      font-weight: 500;
+      font-size: 1.08em;
+      font-weight: 700;
       letter-spacing: 1px;
-      padding: 0.7em 1.5em;
+      padding: 0.7em 2.2em 0.7em 2.2em;
       display: flex;
       align-items: center;
       text-decoration: none;
       cursor: pointer;
-      border-radius: 28px;
-      background: linear-gradient(90deg, var(--accent-color) 60%, var(--primary-color) 100%);
-      box-shadow: 0 2px 12px rgba(255,106,61,0.12);
-      border: 2px solid #fff;
-      transition: background 0.3s, box-shadow 0.3s, border 0.3s;
-      animation: btn-breath 2.5s infinite alternate;
+      border-radius: 32px;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.10);
+      transition: background 0.3s, box-shadow 0.3s, border 0.3s, color 0.3s;
+      position: relative;
+      overflow: hidden;
     }
     .resume-float-btn-download:hover {
-      background: linear-gradient(90deg, var(--primary-color) 60%, var(--accent-color) 100%);
-      box-shadow: 0 6px 24px rgba(34,58,94,0.18);
-      border: 2px solid var(--accent-color);
+      background: linear-gradient(90deg, #1a2236 0%, #2563eb 100%);
+      color: #fff !important;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.16);
+    }
+    .resume-float-btn-download i {
+      margin-right: 0.7em;
+      font-size: 1.1em;
     }
 
     .skill-row {
@@ -647,6 +643,9 @@
       .container {
         margin-top: 120px !important;
       }
+      .header-section {
+        margin-top: 30px;
+      }
     }
     html {
       scroll-behavior: smooth;
@@ -667,6 +666,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       justify-content: flex-start;
+      padding: 0.7rem 1rem;
     }
     .research-item {
       background: #f8fafd;
@@ -683,11 +683,11 @@
       width: 100%;
       height: auto;
       max-width: 100%;
-      max-height: 180px;
+      max-height: 210px;
       border-radius: 16px;
       margin-bottom: 0.7rem;
       background: #fff;
-      border: 2.5px solid #e3eafc;
+      border: 2.5px solid #e5e7eb;
       object-fit: contain;
       box-shadow: 0 4px 18px rgba(34,58,94,0.13);
       transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
@@ -702,6 +702,7 @@
       color: var(--text-secondary);
       font-size: 0.97em;
       text-align: center;
+      line-height: 1;
     }
     @media (max-width: 900px) {
       .research-gallery {
@@ -746,18 +747,15 @@
       }
     }
 
-    /* ======= 重要数字高亮 ======= */
+    /* ======= 重要数字高亮渐变 ======= */
     b, strong {
-      color: var(--accent-color);
+      color: transparent;
+      background: linear-gradient(90deg, #2563eb 30%, #1a2236 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
       font-weight: 700;
-    }
-
-    /* ======= 行间距与字体优化 ======= */
-    body {
-      line-height: 1.8;
-      font-family: 'Inter', '微软雅黑', Arial, sans-serif;
-      font-size: 15.5px;
-      color: var(--primary-color);
+      text-shadow: 0 2px 8px rgba(37,99,235,0.10);
+      font-size: 1.08em;
     }
 
     /* ======= 响应式优化 ======= */
@@ -765,11 +763,36 @@
       .section-title { font-size: 1.08rem; }
       .profile-image { max-width: 90px; }
       .section-card, .project-card, .award-item, .publication-item { border-radius: 12px; }
+      .profile-image {
+        max-width: 140px;
+        max-height: 175px;
+      }
     }
 
-    @keyframes btn-breath {
-      0% { box-shadow: 0 2px 12px rgba(255,106,61,0.12);}
-      100% { box-shadow: 0 8px 32px rgba(255,106,61,0.22);}
+    /* 仅项目经历下的项目卡片浮动 */
+    #projects .project-card:hover {
+      box-shadow: 0 4px 12px rgba(26,34,54,0.10), 0 1.5px 8px rgba(26,34,54,0.06) inset;
+      border: 1px solid #2563eb;
+      background: #fff;
+      transform: translateY(-1px) scale(1.003);
+    }
+
+    .outline-nav a.active:not(.always-active)::after,
+    .outline-nav a:not(.active):not(.always-active)::after {
+      background: linear-gradient(90deg, #2563eb 30%, #1a2236 100%);
+    }
+
+    .section-card .project-card {
+      margin: 0.7rem 0.7rem 0.7rem 0.7rem;
+    }
+    .project-card {
+      padding: 0.9rem 1rem 0.8rem 1rem;
+    }
+
+    .section-card > .award-item,
+    .section-card > .publication-item {
+      margin: 0.7rem;
+      padding: 0.9rem 1rem 0.8rem 1rem;
     }
   </style>
 </head>
@@ -779,13 +802,13 @@
     <ul>
       <li><a href="#basic">基本信息</a></li>
       <li><a href="#education">教育背景</a></li>
+      <li><a href="#research" class="active always-active">研究内容</a></li>
       <li><a href="#skills">个人技能</a></li>
       <li><a href="#projects">项目经历</a></li>
       <li><a href="#intern">实习经历</a></li>
-      <li><a href="#campus">校园经历</a></li>
       <li><a href="#achievements">学术成果</a></li>
       <li><a href="#awards">荣誉奖项</a></li>
-      <li><a href="#research" class="active always-active">研究内容</a></li>
+      <li><a href="#campus">校园经历</a></li>
     </ul>
   </nav>
 
@@ -798,7 +821,7 @@
           <!-- 悬浮下载按钮分为两部分 -->
           <div class="resume-float-btn-wrap" id="resumeFloatBtnWrap">
             <div class="resume-float-btn-drag" id="resumeFloatBtnDrag" title="拖动">☰</div>
-            <a href="https://gitee.com/xupeng-fu/personal/raw/8575274d9d3a24b3cf9652590d2ca34977f5d7cf/%E7%AC%A6%E6%97%AD%E6%9C%8B-%E7%87%95%E5%B1%B1%E5%A4%A7%E5%AD%A6-%E8%BD%A6%E8%BE%86%E5%B7%A5%E7%A8%8B-%E7%A1%95%E5%A3%AB-%E5%8D%95%E9%A1%B5.pdf" class="resume-float-btn-download" target="_blank">下载简历 PDF</a>
+            <a href="https://gitee.com/xupeng-fu/personal/raw/8575274d9d3a24b3cf9652590d2ca34977f5d7cf/%E7%AC%A6%E6%97%AD%E6%9C%8B-%E7%87%95%E5%B1%B1%E5%A4%A7%E5%AD%A6-%E8%BD%A6%E8%BE%86%E5%B7%A5%E7%A8%8B-%E7%A1%95%E5%A3%AB-%E5%8D%95%E9%A1%B5.pdf" class="resume-float-btn-download" target="_blank"><i class="fa fa-download"></i>下载简历 PDF</a>
           </div>
           <div class="contact-info">
             <div class="contact-item">
@@ -853,21 +876,40 @@
       </div>
     </div>
 
+    <!-- Research Content -->
+    <div class="section-card" id="research">
+      <h2 class="section-title">研究内容</h2>
+      <div class="research-gallery">
+        <div class="research-item">
+          <img src="static/assets/img/模型结构.png" alt="模型结构" class="research-img">
+          <div class="research-desc">模型结构</div>
+        </div>
+        <div class="research-item">
+          <img src="static/assets/img/scene-0103_occ.gif" alt="场景0103三维占用预测" class="research-img">
+          <div class="research-desc">场景0103</div>
+        </div>
+        <div class="research-item">
+          <img src="static/assets/img/scene-0916_occ.gif" alt="场景0916三维占用预测" class="research-img">
+          <div class="research-desc">场景0916</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Skills -->
     <div class="section-card" id="skills">
       <h2 class="section-title">个人技能</h2>
       <div class="skills-grid">
         <div class="skill-category">
           <div class="skill-label">编程语言</div>
-          <div class="skill-desc">熟练掌握 Python，熟悉 ROS/ROS2 框架，能独立开发视觉算法。</div>
+          <div class="skill-desc">熟练掌握 Python，熟悉 ROS/ROS2 框架，熟练使用MMDetection3D。</div>
         </div>
         <div class="skill-category">
           <div class="skill-label">学术能力</div>
-          <div class="skill-desc">持续关注CVPR、ECCV、arXiv等前沿论文，具备视觉项目快速复现能力。</div>
+          <div class="skill-desc">持续追踪CVPR、ECCV、arXiv等前沿论文，快速复现视觉论文算法。</div>
         </div>
         <div class="skill-category">
           <div class="skill-label">工具链</div>
-          <div class="skill-desc">熟练使用 Ubuntu，配置 CUDA/cuDNN/PyTorch 环境，掌握模型训练、调试与部署。</div>
+          <div class="skill-desc">熟练使用 Ubuntu，配置 CUDA/cuDNN/PyTorch 环境，掌握模型训练、调试与部署全流程。</div>
         </div>
       </div>
     </div>
@@ -908,31 +950,6 @@
         </div>
         <div class="project-desc"><strong>实习内容：</strong>高动力学性能角模块结构设计，依据企业的强度和轻量化要求，完成 3D 建模、公差分析及工程图纸输出；协同仿真部门进行动力学测试，迭代优化结构。</div>
         <div class="project-result"><strong>成果：</strong>在保持动态载荷下结构完整性的基础上减重 <b>15%</b>；优化关键连接点疲劳寿命至 <b>20 万次循环</b>。</div>
-      </div>
-    </div>
-
-    <!-- Campus Experience -->
-    <div class="section-card" id="campus">
-      <h2 class="section-title">校园经历</h2>
-      <div class="award-item">
-        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
-          <div style="text-align: left; flex: 1;">2023.06 - 2024.10</div>
-          <div style="text-align: center; flex: 2;">研究生党支部书记</div>
-          <div style="text-align: right; flex: 1;">车辆工程系研究生第二党支部</div>
-        </div>
-        <div class="timeline-description" style="margin-top: 0.2rem;">
-          负责支部日常运行，组织"三会一课"、主题党日、集中学习等活动；安排党员发展流程，管理积极分子和发展对象材料；协调党支部与班级事务对接，落实上级党组织工作要求。
-        </div>
-      </div>
-      <div class="award-item">
-        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
-          <div style="text-align: left; flex: 1;">2021.06 - 2022.06</div>
-          <div style="text-align: center; flex: 2;">发展培训部部长</div>
-          <div style="text-align: right; flex: 1;">学生党务中心</div>
-        </div>
-        <div class="timeline-description" style="margin-top: 0.2rem;">
-        负责统筹学院入党积极分子、发展对象和党员的培训安排，制定课程计划，协调授课教师和场地资源，保障党员发展工作规范有序推进。
-        </div>
       </div>
     </div>
 
@@ -977,21 +994,27 @@
       </div>
     </div>
 
-    <!-- Research Content -->
-    <div class="section-card" id="research">
-      <h2 class="section-title">研究内容</h2>
-      <div class="research-gallery">
-        <div class="research-item">
-          <img src="static/assets/img/模型结构.png" alt="模型结构" class="research-img">
-          <div class="research-desc">模型结构</div>
+    <!-- Campus Experience -->
+    <div class="section-card" id="campus">
+      <h2 class="section-title">校园经历</h2>
+      <div class="award-item">
+        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="text-align: left; flex: 1;">2023.06 - 2024.10</div>
+          <div style="text-align: center; flex: 2;">研究生党支部书记</div>
+          <div style="text-align: right; flex: 1;">车辆工程系研究生第二党支部</div>
         </div>
-        <div class="research-item">
-          <img src="static/assets/img/scene-0103_occ.gif" alt="场景0103三维占用预测" class="research-img">
-          <div class="research-desc">场景0103</div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+          负责支部日常运行，组织"三会一课"、主题党日、集中学习等活动；安排党员发展流程，管理积极分子和发展对象材料；协调党支部与班级事务对接，落实上级党组织工作要求。
         </div>
-        <div class="research-item">
-          <img src="static/assets/img/scene-0916_occ.gif" alt="场景0916三维占用预测" class="research-img">
-          <div class="research-desc">场景0916</div>
+      </div>
+      <div class="award-item">
+        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="text-align: left; flex: 1;">2021.06 - 2022.06</div>
+          <div style="text-align: center; flex: 2;">发展培训部部长</div>
+          <div style="text-align: right; flex: 1;">学生党务中心</div>
+        </div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+        负责统筹学院入党积极分子、发展对象和党员的培训安排，制定课程计划，协调授课教师和场地资源，保障党员发展工作规范有序推进。
         </div>
       </div>
     </div>
