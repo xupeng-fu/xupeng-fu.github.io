@@ -1,192 +1,1016 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Academic Webpage" />
-    <meta name="author" content="yixin0313" />
-    <title id="title"></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>符旭朋 - 个人简历</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2a3a5e;
+      --secondary-color: #5a6270;
+      --accent-color: #b0b8c9;
+      --text-primary: #222;
+      --text-secondary: #555;
+      --bg-light: #f7fafc;
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
+    }
 
-    <!-- Icon -->
-    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    body {
+      font-family: 'Inter', '微软雅黑', Arial, sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0.7rem 0.3rem;
+    }
 
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+    /* Header Section */
+    .header-section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.7rem 0.7rem 0.6rem 0.7rem;
+      margin-bottom: 0.7rem;
+      box-shadow: var(--card-shadow);
+    }
 
-    <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+    .profile-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      min-height: 220px;
+    }
 
-    <!-- For Compatability -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    .profile-image {
+      width: 100%;
+      height: auto;
+      max-width: 140px;
+      max-height: 180px;
+      border-radius: 10px;
+      object-fit: contain;
+      object-position: center center;
+      border: 2px solid #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      flex-shrink: 0;
+      background: none;
+      display: block;
+      order: 2;
+    }
 
-    <!-- Markdown -->
-    <script type="text/javascript" src="static/js/marked.min.js"></script>
+    .profile-info {
+      flex: 1;
+      min-width: 220px;
+      order: 1;
+    }
 
-    <!-- Mathematics -->
-    <script>
-        // See https://docs.mathjax.org/en/latest/index.html for more details.
-        MathJax = {
-            tex: {
-                packages: {},              // extensions to use
-                inlineMath: [              // start/end delimiter pairs for in-line math
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ],
-                displayMath: [             // start/end delimiter pairs for display math
-                    ['$$', '$$'],
-                    ['\\[', '\\]']
-                ],
-                processEscapes: false,      // use \$ to produce a literal dollar sign
-                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
-                processRefs: true,         // process \ref{...} outside of math mode
-                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
-                tags: 'all',              // or 'ams' or 'all'
-                tagSide: 'right',          // side for \tag macros
-                tagIndent: '0.8em',        // amount to indent tags
-                useLabelIds: true,         // use label name rather than tag for ids
-                maxMacros: 10000,          // maximum number of macro substitutions per expression
-                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
-                formatError:               // function called when TeX syntax errors occur
-                    (jax, err) => jax.formatError(err)
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    .profile-info h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.2rem;
+    }
 
-    <!-- Core JS-->
-    <script type="text/javascript" src="static/js/scripts.js"></script>
-    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+    .profile-info .subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
 
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1.2rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 600px) {
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.95em;
+      width: 100%;
+    }
+    .contact-item strong {
+      display: inline-block;
+      min-width: 90px;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-align: right;
+      margin-right: 0.5em;
+    }
+    .contact-item a {
+      word-break: break-all;
+      color: var(--text-secondary) !important;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.7rem 0.7rem 0.6rem 0.7rem;
+      margin-bottom: 0.7rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f0f1f3;
+    }
+
+    .section-title {
+      font-size: 1.13rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title i {
+      font-size: 1em;
+      color: var(--secondary-color);
+    }
+
+    /* Education & Experience */
+    .timeline-item {
+      padding-left: 0;
+      margin-bottom: 0.2rem;
+      border: none;
+    }
+
+    .timeline-date {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 0.97em;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+      font-size: 1em;
+    }
+
+    .timeline-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95em;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-description {
+      color: var(--text-secondary);
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: #f8fafd;
+      border-radius: 10px;
+      padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+      margin-bottom: 0.4rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: none;
+    }
+
+    .project-title {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1em;
+      margin-bottom: 0.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-title-left {
+      text-align: left;
+      flex: 1;
+    }
+
+    .project-title-center {
+      text-align: center;
+      flex: 2;
+    }
+
+    .project-title-right {
+      text-align: right;
+      flex: 1;
+    }
+
+    .project-meta {
+      font-size: 0.95em;
+      color: var(--secondary-color);
+      margin-bottom: 0.2rem;
+    }
+
+    .project-role {
+      font-size: 0.92em;
+      color: #fff;
+      background: var(--secondary-color);
+      border-radius: 10px;
+      padding: 0.1em 0.7em;
+      margin-left: 0.5em;
+      font-weight: 500;
+    }
+
+    .project-desc, .project-duty, .project-result {
+      font-size: 0.95em;
+      color: var(--text-secondary);
+      margin-bottom: 0.1rem;
+    }
+
+    .project-duty strong, .project-result strong { color: var(--primary-color); }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.4rem;
+    }
+
+    .skill-category {
+      background: #f8fafd;
+      border-radius: 10px;
+      padding: 0.5rem 0.7rem 0.4rem 0.7rem;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 80px;
+    }
+
+    .skill-label {
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.4rem;
+      text-align: center !important;
+      width: 100%;
+      display: block;
+    }
+
+    .skill-desc {
+      color: var(--text-secondary);
+      font-size: 0.97em;
+      line-height: 1.3;
+      text-align: left;
+      width: 100%;
+    }
+
+    /* Awards */
+    .award-item {
+      padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+      border-radius: 10px;
+      margin-bottom: 0.4rem;
+      background: #f8fafd;
+      border: 1px solid #e5e7eb;
+      box-shadow: none;
+    }
+
+    .award-title, .publication-title {
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.1rem;
+    }
+
+    .award-year, .publication-type {
+      font-size: 0.92em;
+      color: var(--secondary-color);
+    }
+
+    /* Publications */
+    .publication-item {
+      padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+      border-radius: 10px;
+      margin-bottom: 0.4rem;
+      background: #f8fafd;
+      border: 1px solid #e5e7eb;
+      box-shadow: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0.3rem;
+      }
+      .header-section,
+      .section-card {
+        padding: 0.5rem 0.3rem 0.4rem 0.3rem;
+        margin-bottom: 0.4rem;
+      }
+      .section-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.3rem;
+      }
+      .profile-container {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        min-height: unset;
+      }
+      .profile-image {
+        max-width: 130px;
+        max-height: 170px;
+      }
+      .profile-info {
+        min-width: 0;
+        width: 100%;
+      }
+      .skills-grid { flex-direction: column; gap: 0.2rem; }
+      body {
+        font-size: 15px;
+      }
+      .profile-info h1 {
+        font-size: 1.2rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .profile-container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      .profile-image {
+        max-width: 110px;
+        max-height: 140px;
+      }
+      .profile-info {
+        order: 2;
+      }
+      .profile-image {
+        order: 1;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-card {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .section-card:nth-child(2) { animation-delay: 0.1s; }
+    .section-card:nth-child(3) { animation-delay: 0.2s; }
+    .section-card:nth-child(4) { animation-delay: 0.3s; }
+    .section-card:nth-child(5) { animation-delay: 0.4s; }
+    .section-card:nth-child(6) { animation-delay: 0.5s; }
+    .section-card:nth-child(7) { animation-delay: 0.6s; }
+    .section-card:nth-child(8) { animation-delay: 0.7s; }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    }
+
+    /* Awards 优化 */
+    .honor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .honor-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      font-size: 0.97em;
+    }
+    .honor-time {
+      color: var(--primary-color);
+      font-weight: 600;
+      min-width: 90px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .honor-content {
+      color: var(--text-secondary);
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .honor-item {
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .honor-time {
+        text-align: left;
+        min-width: 0;
+      }
+    }
+
+    /* 悬浮下载按钮样式 */
+    .resume-float-btn-wrap {
+      position: fixed;
+      top: 32px;
+      right: 32px;
+      z-index: 3000;
+      display: flex;
+      align-items: stretch;
+      border-radius: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      overflow: hidden;
+      background: rgba(205, 49, 14, 0.85);
+      opacity: 0.85;
+      transition: opacity 0.2s, background 0.2s;
+    }
+    .resume-float-btn-wrap:hover {
+      opacity: 1;
+      background: rgba(42, 58, 94, 1);
+    }
+    .resume-float-btn-drag {
+      cursor: move;
+      background: rgba(42, 58, 94, 0.9);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 1em;
+      font-size: 1.2em;
+      user-select: none;
+    }
+    .resume-float-btn-download {
+      background: transparent;
+      color: #fff !important;
+      border: none;
+      font-size: 1em;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 0.7em 1.5em;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @media (max-width: 1000px) {
+      .resume-float-btn-wrap {
+        top: 60px !important;
+        right: 8px !important;
+        left: auto !important;
+        z-index: 3000 !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .resume-float-btn-wrap { top: 60px !important; right: 8px !important; }
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 0.5em 0.8em;
+      background: #f8fafd;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 0.5rem;
+    }
+    .skill-label {
+      min-width: 80px;
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 1em;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .skill-desc {
+      color: var(--text-secondary);
+      font-size: 0.97em;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .skill-row {
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.5em 0.5em;
+      }
+      .skill-label {
+        text-align: left;
+        min-width: 0;
+      }
+    }
+
+    .outline-nav {
+      position: fixed;
+      top: 90px;
+      left: 32px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 1.1em 1.3em 1.1em 1.1em;
+      min-width: 140px;
+      font-size: 1em;
+      border: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s;
+    }
+    .outline-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .outline-nav li {
+      margin-bottom: 0.7em;
+    }
+    .outline-nav a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      border-left: 3px solid transparent;
+      padding-left: 0.5em;
+      display: block;
+    }
+    .outline-nav a:hover, .outline-nav a.active {
+      color: #cd310e;
+      border-left: 3px solid #cd310e;
+      background: #f8fafd;
+      border-radius: 4px;
+    }
+    @media (max-width: 1000px) {
+      #basic, #education, #skills, #projects, #intern, #campus, #achievements, #awards, #research {
+        scroll-margin-top: 120px;
+      }
+      .outline-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        border-radius: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 0.5em 0.2em;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        z-index: 2000;
+      }
+      .outline-nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0.5em;
+      }
+      .outline-nav li {
+        margin-bottom: 0;
+      }
+      .outline-nav a {
+        padding: 0.3em 0.8em;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+      }
+      .outline-nav a:hover, .outline-nav a.active {
+        border-left: none;
+        border-bottom: 2px solid #cd310e;
+        background: #f8fafd;
+      }
+      .container {
+        margin-top: 120px !important;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #basic, #education, #skills, #projects, #intern, #campus, #achievements, #awards {
+      scroll-margin-top: 70px;
+    }
+    @media (min-width: 1001px) {
+      #basic, #education, #skills, #projects, #intern, #campus, #achievements, #awards {
+        scroll-margin-top: 0;
+      }
+    }
+
+    /* Research Content */
+    .research-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      justify-content: flex-start;
+    }
+    .research-item {
+      background: #f8fafd;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem 1rem 0.7rem 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .research-img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 180px;
+      border-radius: 6px;
+      margin-bottom: 0.7rem;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      object-fit: contain;
+    }
+    .research-desc {
+      color: var(--text-secondary);
+      font-size: 0.97em;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .research-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .research-item { max-width: 100%; }
+      .research-img { width: 100%; height: auto; max-width: 100%; max-height: 180px; }
+    }
+
+    .outline-nav a.always-active,
+    .outline-nav a.always-active:hover {
+      color: #fff !important;
+      background: #cd310e !important;
+      border-left: 3px solid #cd310e !important;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(205,49,14,0.10);
+      transition: none;
+    }
+    @media (max-width: 1000px) {
+      .outline-nav a.always-active,
+      .outline-nav a.always-active:hover {
+        border-left: none !important;
+        border-bottom: 2px solid #cd310e !important;
+      }
+    }
+
+    .outline-nav a.active:not(.always-active) {
+      color: #fff !important;
+      background: #2a3a5e !important;
+      border-left: 5px solid #cd310e !important;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(42,58,94,0.10);
+      position: relative;
+    }
+    @media (max-width: 1000px) {
+      .outline-nav a.active:not(.always-active) {
+        border-left: none !important;
+        border-bottom: 3px solid #cd310e !important;
+      }
+    }
+  </style>
 </head>
+<body>
+  <!-- 大纲导航 -->
+  <nav class="outline-nav" id="outlineNav">
+    <ul>
+      <li><a href="#basic">基本信息</a></li>
+      <li><a href="#education">教育背景</a></li>
+      <li><a href="#skills">个人技能</a></li>
+      <li><a href="#projects">项目经历</a></li>
+      <li><a href="#intern">实习经历</a></li>
+      <li><a href="#campus">校园经历</a></li>
+      <li><a href="#achievements">学术成果</a></li>
+      <li><a href="#awards">荣誉奖项</a></li>
+      <li><a href="#research" class="active always-active">研究内容</a></li>
+    </ul>
+  </nav>
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5">
-            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
-            <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                MENU
-                <i class="bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#experience">EXPERIENCE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
-                    </li>
-                </ul>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section" id="basic">
+      <div class="profile-container">
+        <div class="profile-info">
+          <h1>符旭朋</h1>
+          <!-- 悬浮下载按钮分为两部分 -->
+          <div class="resume-float-btn-wrap" id="resumeFloatBtnWrap">
+            <div class="resume-float-btn-drag" id="resumeFloatBtnDrag" title="拖动">☰</div>
+            <a href="https://gitee.com/xupeng-fu/personal/raw/8575274d9d3a24b3cf9652590d2ca34977f5d7cf/%E7%AC%A6%E6%97%AD%E6%9C%8B-%E7%87%95%E5%B1%B1%E5%A4%A7%E5%AD%A6-%E8%BD%A6%E8%BE%86%E5%B7%A5%E7%A8%8B-%E7%A1%95%E5%A3%AB-%E5%8D%95%E9%A1%B5.pdf" class="resume-float-btn-download" target="_blank">下载简历 PDF</a>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span><strong>出生年月：</strong>2001年1月</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- Top Section -->
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
+            <div class="contact-item">
+              <span><strong>籍<span style="display:inline-block;width:2em;"></span>贯：</strong>河北省唐山市</span>
             </div>
+            <div class="contact-item">
+              <span><strong>政治面貌：</strong>中共党员</span>
+            </div>
+            <div class="contact-item">
+              <span><strong>英语水平：</strong>CET-6</span>
+            </div>
+            <div class="contact-item">
+              <span><strong>联系电话：</strong><a href="tel:13363269149">13363269149</a></span>
+            </div>
+            <div class="contact-item">
+              <span><strong>邮箱地址：</strong><a href="mailto:fuxupeng01@163.com">fuxupeng01@163.com</a></span>
+            </div>
+            <div class="contact-item">
+              <span><strong>代码仓库：</strong><a href="https://gitee.com/xupeng-fu/FB-BEV" target="_blank">gitee.com/xupeng-fu</a></span>
+            </div>
+            <div class="contact-item">
+              <span><strong>意向岗位：</strong>视觉感知/3D Occupancy</span>
+            </div>
+          </div>
         </div>
-    </section>
-    <!-- Top Section -->
-
-    <!-- Photo -->
-    <div class="container px-5">
-        <div id="avatar">
-            <img class="shadow" src="static/assets/img/photo.png">
-        </div>
+        <img src="static/photo.jpg" alt="符旭朋" class="profile-image">
+      </div>
     </div>
-    <!-- Photo -->
 
-    <!-- Home -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-        <div class="container px-5">
-            <header>
-                <h2 id="home-subtitle"> </h2>
-                <!-- <span class="bi bi-list"></span> -->
-            </header>
-            <div class="main-body" id="home-md"></div>
+    <!-- Education Section -->
+    <div class="section-card" id="education">
+      <h2 class="section-title">教育背景</h2>
+      <div class="project-card">
+        <div class="project-title">
+          <div class="project-title-left">2023.09 - 2026.06</div>
+          <div class="project-title-center">燕山大学车辆工程</div>
+          <div class="project-title-right">硕士</div>
         </div>
-    </section>
-    <!-- Home -->
+        <div class="timeline-subtitle">研究方向：基于前向投影的轻量纯视觉3D占用预测方法</div>
+        <div class="timeline-description">毕业论文：《车载相机轻量三维占用预测方法研究》</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <div class="project-title-left">2019.09 - 2023.06</div>
+          <div class="project-title-center">燕山大学车辆工程</div>
+          <div class="project-title-right">学士</div>
+        </div>
+        <div class="timeline-description">毕业论文：《基于激光雷达的SLAM地图建立与定位方法》</div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section-card" id="skills">
+      <h2 class="section-title">个人技能</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-label">编程语言</div>
+          <div class="skill-desc">熟练掌握 Python，熟悉 ROS/ROS2 框架，能独立开发视觉算法。</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">学术能力</div>
+          <div class="skill-desc">持续关注CVPR、ECCV、arXiv等前沿论文，具备视觉项目快速复现能力。</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">工具链</div>
+          <div class="skill-desc">熟练使用 Ubuntu，配置 CUDA/cuDNN/PyTorch 环境，掌握模型训练、调试与部署。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Experience -->
+    <div class="section-card" id="projects">
+      <h2 class="section-title">项目经历</h2>
+      <div class="project-card">
+        <div class="project-title">
+          <div class="project-title-left">2023.12 ~ 2026.11</div>
+          <div class="project-title-center">完备行车环境状态估计与信息重构技术</div>
+          <div class="project-title-right"><span class="project-role">项目成员</span></div>
+        </div>
+        <div class="project-desc"><strong>项目简介：</strong>国家重点研发计划子课题（2023YFB2504401），研究方向涵盖交通参与者行为样本集构建、状态识别与语义信息重构。</div>
+        <div class="project-duty"><strong>职责：</strong>mmdet3d 框架下重构 MIT-BEVFusion，服务器训练模型并适配本地场景；部署感知算法至 Autoware.ai，完成 LiDAR、相机驱动适配与参数标定；设计 ROS1 节点管理框架，实现多传感器实时采集与推理。</div>
+        <div class="project-result"><strong>成果：</strong>重构的 MIT-BEVFusion 在自采测试数据集上的 mAP 达到 <b>68.36</b>。</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <div class="project-title-left">2023.03 ~ 2024.12</div>
+          <div class="project-title-center">新一代高速智能动车组主动安全系统及关键技术研究</div>
+          <div class="project-title-right"><span class="project-role">负责人</span></div>
+        </div>
+        <div class="project-desc"><strong>项目简介：</strong>吉林省科技发展计划项目（20230305004JH），目标为建立超视距感知与异常状态监控系统，提出一体化应急响应方案。</div>
+        <div class="project-duty"><strong>职责：</strong>① UE4 二次开发 CARLA 地图，补充动车模型、轨道拓扑、站台设施；解析 GIS 矢量数据并校验拓扑一致性。② 构建极端天气高风险场景，控制环境变化。③ 采集多传感器数据并训练感知模型。</div>
+        <div class="project-result"><strong>成果：</strong>构建超 <b>15,000</b> 帧标注数据集；轨道检测准确率 <b>91.2%</b>，预警系统误报率 <b>4.3%</b>。</div>
+      </div>
+    </div>
+
+    <!-- Internship Experience -->
+    <div class="section-card" id="intern">
+      <h2 class="section-title">实习经历</h2>
+      <div class="project-card">
+        <div class="project-title">
+          <div class="project-title-left">2022.05 ~ 2022.10</div>
+          <div class="project-title-center">乌海海易通银隆新能源汽车有限公司</div>
+          <div class="project-title-right"><span class="project-role">角模块结构设计</span></div>
+        </div>
+        <div class="project-desc"><strong>实习内容：</strong>高动力学性能角模块结构设计，依据企业的强度和轻量化要求，完成 3D 建模、公差分析及工程图纸输出；协同仿真部门进行动力学测试，迭代优化结构。</div>
+        <div class="project-result"><strong>成果：</strong>在保持动态载荷下结构完整性的基础上减重 <b>15%</b>；优化关键连接点疲劳寿命至 <b>20 万次循环</b>。</div>
+      </div>
+    </div>
+
+    <!-- Campus Experience -->
+    <div class="section-card" id="campus">
+      <h2 class="section-title">校园经历</h2>
+      <div class="award-item">
+        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="text-align: left; flex: 1;">2023.06 - 2024.10</div>
+          <div style="text-align: center; flex: 2;">研究生党支部书记</div>
+          <div style="text-align: right; flex: 1;">车辆工程系研究生第二党支部</div>
+        </div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+          负责支部日常运行，组织"三会一课"、主题党日、集中学习等活动；安排党员发展流程，管理积极分子和发展对象材料；协调党支部与班级事务对接，落实上级党组织工作要求。
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="text-align: left; flex: 1;">2021.06 - 2022.06</div>
+          <div style="text-align: center; flex: 2;">发展培训部部长</div>
+          <div style="text-align: right; flex: 1;">学生党务中心</div>
+        </div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+        负责统筹学院入党积极分子、发展对象和党员的培训安排，制定课程计划，协调授课教师和场地资源，保障党员发展工作规范有序推进。
+        </div>
+      </div>
+    </div>
+
+    <!-- Academic Achievements -->
+    <div class="section-card" id="achievements">
+      <h2 class="section-title">学术成果</h2>
+      <div class="award-item">
+        <div class="award-title">EI会议论文</div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+          <ol style="margin:0 0 0 1.2em;padding:0;">
+            <li>《Attention-Driven Image Feature Enhancement Method for Roadside BEV Perception》</li>
+            <li>《3D Occupancy-Guided BEV Learning Enhances Robust End-to-End Trajectory Planning》</li>
+          </ol>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-title">发明专利</div>
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+          <ol style="margin:0 0 0 1.2em;padding:0;">
+            <li>《一种基于深度学习的车辆运动规划方法》</li>
+            <li>《3D占用预测方法和装置、系统、存储介质》</li>
+            <li>《一种基于鸟瞰图的目标检测方法及相关装置》</li>
+            <li>《一种基于多语义三维占用网络与渐进式自监督的端到端自动驾驶规划方法》</li>
+          </ol>
+        </div>
+      </div>
+    </div>
 
     <!-- Awards -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
-        <div class="container px-5">
-            <header>
-                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
-            </header>
-            <div class="main-body" id="awards-md"></div>
-
+    <div class="section-card" id="awards">
+      <h2 class="section-title">荣誉奖项</h2>
+      <div class="award-item">
+        <div class="timeline-description" style="margin-top: 0.2rem;">
+          <ol style="margin:0 0 0 1.2em;padding:0;">
+            <li>2023~2025年两次获得二等学业奖学金</li>
+            <li>2022年获得"车辆与能源学院优秀共青团员"称号</li>
+            <li>2021年获得"遵化市疫情防控最美大学生志愿者"称号</li>
+            <li>2019~2022年连续6学期获得学业奖学金</li>
+            <li>2019~2021年连续2学年获得国家励志奖学金</li>
+          </ol>
         </div>
-    </section>
-    <!-- Awards -->
+      </div>
+    </div>
 
-    <!-- Experience -->
-    <section class="bg-gradient-primary-to-secondary-dark mt5 md5" id="experience">
-        <div class="container px-5">
-            <header>
-                <h2 id="experience-subtitle"><i class="bi bi-briefcase-fill"></i> EXPERIENCE </h2>
-            </header>
-            <div class="main-body" id="experience-md"></div>
+    <!-- Research Content -->
+    <div class="section-card" id="research">
+      <h2 class="section-title">研究内容</h2>
+      <div class="research-gallery">
+        <div class="research-item">
+          <img src="static/picture/模型结构.png" alt="模型结构" class="research-img">
+          <div class="research-desc">模型结构</div>
         </div>
-    </section>
-    <!-- Experience -->
-
-    <!-- Publications -->
-    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
-        <div class="container px-5">
-            <header>
-                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
-            </header>
-            <div class="main-body" id="publications-md"></div>
-
+        <div class="research-item">
+          <img src="static/picture/scene-0103_occ.gif" alt="场景0103三维占用预测" class="research-img">
+          <div class="research-desc">场景0103</div>
         </div>
-    </section>
-    <!-- Publications  -->
-
-    <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
-        <div class="container px-5">
-            <div class="text-white-50 small">
-                <div id="copyright-text" class="mb-2"></div>
-                <a id="github-link" href="https://github.com/senli1073">Github</a>
-                <span class="mx-1">&middot;</span>
-                <a id="license-link"
-                    href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
-            </div>
+        <div class="research-item">
+          <img src="static/picture/scene-0916_occ.gif" alt="场景0916三维占用预测" class="research-img">
+          <div class="research-desc">场景0916</div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // 大纲高亮
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = ['basic','education','skills','projects','intern','campus','achievements','awards','research'];
+    const navLinks = document.querySelectorAll('.outline-nav a');
+    window.addEventListener('scroll', function() {
+      let cur = '';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY + 120 >= el.offsetTop) cur = id;
+      }
+      navLinks.forEach(a => { if (!a.classList.contains('always-active')) a.classList.remove('active'); });
+      if (cur) {
+        const active = document.querySelector('.outline-nav a[href="#'+cur+'"]');
+        if (active) active.classList.add('active');
+      }
+    });
+
+    // 悬浮按钮拖动（仅限左侧拖拽区）
+    const wrap = document.getElementById('resumeFloatBtnWrap');
+    const drag = document.getElementById('resumeFloatBtnDrag');
+    let isDragging = false, offsetX = 0, offsetY = 0, startX = 0, startY = 0;
+    drag.addEventListener('mousedown', function(e) {
+      if (e.button !== 0) return;
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      offsetX = e.clientX - wrap.getBoundingClientRect().left;
+      offsetY = e.clientY - wrap.getBoundingClientRect().top;
+      wrap.style.transition = 'none';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      let x = e.clientX - offsetX;
+      let y = e.clientY - offsetY;
+      x = Math.max(0, Math.min(window.innerWidth - wrap.offsetWidth, x));
+      y = Math.max(0, Math.min(window.innerHeight - wrap.offsetHeight, y));
+      wrap.style.left = x + 'px';
+      wrap.style.top = y + 'px';
+      wrap.style.right = 'auto';
+      wrap.style.position = 'fixed';
+    });
+    window.addEventListener('mouseup', function(e) {
+      if (isDragging) {
+        isDragging = false;
+        wrap.style.transition = '';
+        document.body.style.userSelect = '';
+      }
+    });
+    drag.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    // 移动端 touch 支持
+    let touchDragging = false, touchOffsetX = 0, touchOffsetY = 0;
+    drag.addEventListener('touchstart', function(e) {
+      if (!e.touches || e.touches.length !== 1) return;
+      touchDragging = true;
+      const touch = e.touches[0];
+      touchOffsetX = touch.clientX - wrap.getBoundingClientRect().left;
+      touchOffsetY = touch.clientY - wrap.getBoundingClientRect().top;
+      wrap.style.transition = 'none';
+      document.body.style.userSelect = 'none';
+      e.preventDefault();
+    }, {passive: false});
+    window.addEventListener('touchmove', function(e) {
+      if (!touchDragging || !e.touches || e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      let x = touch.clientX - touchOffsetX;
+      let y = touch.clientY - touchOffsetY;
+      x = Math.max(0, Math.min(window.innerWidth - wrap.offsetWidth, x));
+      y = Math.max(0, Math.min(window.innerHeight - wrap.offsetHeight, y));
+      wrap.style.left = x + 'px';
+      wrap.style.top = y + 'px';
+      wrap.style.right = 'auto';
+      wrap.style.position = 'fixed';
+    }, {passive: false});
+    window.addEventListener('touchend', function(e) {
+      if (touchDragging) {
+        touchDragging = false;
+        wrap.style.transition = '';
+        document.body.style.userSelect = '';
+      }
+    }, {passive: false});
+  });
+  </script>
 </body>
-
 </html>
