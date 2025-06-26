@@ -713,6 +713,51 @@
       .research-img { width: 100%; height: auto; max-width: 100%; max-height: 180px; }
     }
 
+    /* Research Subsection Styles */
+    .research-subsection {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(26,34,54,0.13), 0 1.5px 8px rgba(26,34,54,0.08) inset;
+      border: 1px solid #e5e7eb;
+      transition: box-shadow 0.25s, transform 0.25s, border 0.25s, background 0.25s;
+      margin: 0.7rem;
+      padding: 0.9rem 1rem 0.8rem 1rem;
+    }
+    .research-subsection:hover {
+      box-shadow: 0 4px 12px rgba(26,34,54,0.10);
+      border: 1px solid #2563eb;
+      background: #fff;
+      transform: translateY(-1px) scale(1.003);
+    }
+    .research-subsection:last-child {
+      margin-bottom: 0.7rem;
+    }
+    .subsection-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .subsection-title::before {
+      content: "📊";
+      font-size: 1.2em;
+    }
+    .research-content {
+      color: var(--text-secondary);
+      font-size: 0.97em;
+      line-height: 1.6;
+    }
+    .research-content p {
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+
     .outline-nav a.always-active,
     .outline-nav a.always-active:hover {
       color: #fff !important;
@@ -879,18 +924,49 @@
     <!-- Research Content -->
     <div class="section-card" id="research">
       <h2 class="section-title">研究内容</h2>
-      <div class="research-gallery">
-        <div class="research-item">
-          <img src="static/assets/img/模型结构.png" alt="模型结构" class="research-img">
-          <div class="research-desc">模型结构</div>
+      
+      <!-- DIST-GSD-OCC 子模块 -->
+      <div class="research-subsection">
+        <h3 class="subsection-title">DIST-GSD-OCC</h3>
+        <div class="research-content" style="margin-bottom: 0.5rem;">
+          <p style="margin-bottom: 0.5rem;"><strong>项目地址：</strong><a href="https://gitee.com/xupeng-fu/FB-BEV" target="_blank" style="color: var(--accent-color); text-decoration: none;">https://gitee.com/xupeng-fu/FB-BEV</a></p>
         </div>
-        <div class="research-item">
-          <img src="static/assets/img/scene-0103_occ.gif" alt="场景0103三维占用预测" class="research-img">
-          <div class="research-desc">场景0103</div>
+        <div class="research-gallery">
+          <div class="research-item">
+            <img src="static/assets/img/模型结构.png" alt="模型结构" class="research-img">
+            <div class="research-desc">模型结构</div>
+          </div>
+          <div class="research-item">
+            <img src="static/assets/img/scene-0103_occ.gif" alt="场景0103三维占用预测" class="research-img">
+            <div class="research-desc">场景0103</div>
+          </div>
+          <div class="research-item">
+            <img src="static/assets/img/scene-0916_occ.gif" alt="场景0916三维占用预测" class="research-img">
+            <div class="research-desc">场景0916</div>
+          </div>
         </div>
-        <div class="research-item">
-          <img src="static/assets/img/scene-0916_occ.gif" alt="场景0916三维占用预测" class="research-img">
-          <div class="research-desc">场景0916</div>
+        <div class="research-content" style="margin-top: 1rem; line-height: 1.4;">
+          <p style="margin: 0 0 0.2rem 0; padding: 0;">在GSD-OCC的基础上进行了以下修改：</p>
+          <div style="margin-left: 1rem; margin-bottom: 0.2rem;">
+            <p style="margin: 0 0 0.15rem 0; padding: 0.03rem 0;"><strong>（1）</strong>补充了FSD-BEV的自蒸馏模块，相比不足是教师模型仅有单帧深度；</p>
+            <p style="margin: 0 0 0.15rem 0; padding: 0.03rem 0;"><strong>（2）</strong>在双分支Head中将利用加法/乘法广播机制的channel2height替换成了Flashocc提出的channel2height；</p>
+          </div>
+          <p style="margin: 0 0 0.15rem 0; padding: 0.03rem 0;"><strong>结果：</strong>相对原始模型降低了约2mAP</p>
+          <p style="margin: 0; padding: 0.03rem 0;"><strong>猜测原因：</strong>对channel2height理解有误，补充到代码中变成了channel2channel，channel变成了height的噪声</p>
+        </div>
+      </div>
+
+      <!-- Planner-Based-OCC 子模块 -->
+      <div class="research-subsection">
+        <h3 class="subsection-title">Planner-Based-OCC</h3>
+        <div class="research-content" style="line-height: 1.4;">
+          <p style="margin-bottom: 0.5rem;"><strong>项目地址：</strong><a href="https://gitee.com/xupeng-fu/LightOCC" target="_blank" style="color: var(--accent-color); text-decoration: none;">https://gitee.com/xupeng-fu/LightOCC</a></p>
+          <p style="margin: 0 0 0.2rem 0; padding: 0;">在Flashocc的基础上进行了以下修改：</p>
+          <div style="margin-left: 1rem; margin-bottom: 0.2rem;">
+            <p style="margin: 0 0 0.15rem 0; padding: 0.03rem 0;"><strong>（1）</strong>引入BEV-Planner的Planner Head，将BEV提升到OCC以后用占用真值做监督；</p>
+            <p style="margin: 0 0 0.15rem 0; padding: 0.03rem 0;"><strong>（2）</strong>将占用推理结果压回BEV与can_bus拼接，输入到Planner Head做规划；</p>
+          </div>
+          <p style="margin: 0; padding: 0.03rem 0;">后感觉隐式利用占用结果意义不大，且开环端到端没意义，遂放弃。</p>
         </div>
       </div>
     </div>
